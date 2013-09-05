@@ -1,7 +1,0 @@
-ros-groovy-hector-localization (0.1.0-0precise) precise; urgency=high
-
-  * catkinized stack hector_localization
-
- -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Mon, 02 Sep 2013 22:00:00 -0000
-
-
