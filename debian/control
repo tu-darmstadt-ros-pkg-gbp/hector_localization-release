@@ -1,0 +1,12 @@
+Source: ros-hydro-message-to-tf
+Section: misc
+Priority: extra
+Maintainer: Johannes Meyer <meyer@fsr.tu-darmstadt.de>
+Build-Depends: debhelper (>= 7.0.50~), ros-hydro-catkin, ros-hydro-geometry-msgs, ros-hydro-nav-msgs, ros-hydro-roscpp, ros-hydro-sensor-msgs, ros-hydro-tf, ros-hydro-topic-tools
+Homepage: http://ros.org/wiki/message_to_tf
+Standards-Version: 3.9.2
+
+Package: ros-hydro-message-to-tf
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-geometry-msgs, ros-hydro-nav-msgs, ros-hydro-roscpp, ros-hydro-sensor-msgs, ros-hydro-tf, ros-hydro-topic-tools
+Description: message_to_tf translates pose information from different kind of common_msgs message types to tf. Currently the node supports nav_msgs/Odometry, geometry_msgs/PoseStamped and sensor_msgs/Imu messages as input. The resulting transform is divided into three subtransforms with intermediate frames for the footprint and the stabilized base frame (without roll and pitch).
