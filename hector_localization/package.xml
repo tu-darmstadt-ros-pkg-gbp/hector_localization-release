@@ -1,6 +1,6 @@
 <package>
   <name>hector_localization</name>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <description>
     The hector_localization stack is a collection of packages, that provide the full 6DOF pose of a robot or platform.
     It uses various sensor sources, which are fused using an Extended Kalman filter.
@@ -22,9 +22,6 @@
   <!-- Dependencies which this package needs to build itself. -->
   <buildtool_depend>catkin</buildtool_depend>
 
-  <!-- Dependencies needed to compile this package. -->
-
-
   <!-- Dependencies needed after this package is compiled. -->
   <!-- <run_depend>world_magnetic_model</run_depend> -->
   <run_depend>message_to_tf</run_depend>
@@ -32,6 +29,8 @@
   <run_depend>hector_pose_estimation</run_depend>
   <run_depend>hector_pose_estimation_core</run_depend>
 
-  <!-- Dependencies needed only for running tests. -->
+  <export>
+    <metapackage/>
+  </export>
 
 </package>
