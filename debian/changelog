@@ -1,0 +1,17 @@
+ros-hydro-message-to-tf (0.1.1-1raring) raring; urgency=high
+
+  * added missing dependency to roscpp
+  * Contributors: Johannes Meyer
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sat, 29 Mar 2014 23:00:00 -0000
+
+ros-hydro-message-to-tf (0.1.0-1raring) raring; urgency=high
+
+  * catkinized stack hector_localization
+  * readded tf_prefix support (deprecated feature in ROS hydro beta)
+  * added ShapeShifter subscriber which accepts multiple message types
+  * added euler angle publisher (Vector3Stamped)
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Mon, 02 Sep 2013 22:00:00 -0000
+
+
