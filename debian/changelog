@@ -1,0 +1,14 @@
+ros-hydro-hector-localization (0.1.1-1quantal) quantal; urgency=high
+
+  * made hector_localization a true metapackage
+  * Contributors: Johannes Meyer
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sat, 29 Mar 2014 23:00:00 -0000
+
+ros-hydro-hector-localization (0.1.0-1quantal) quantal; urgency=high
+
+  * catkinized stack hector_localization
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Mon, 02 Sep 2013 22:00:00 -0000
+
+
