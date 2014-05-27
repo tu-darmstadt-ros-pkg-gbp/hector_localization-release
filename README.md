@@ -1,3 +1,27 @@
+## hector_localization (hydro) - 0.1.1-1
+
+The packages in the `hector_localization` repository were released into the `hydro` distro by running `/usr/bin/bloom-release hector_localization -t hydro -r hydro` on `Tue, 27 May 2014 12:13:31 -0000`
+
+These packages were released:
+- `hector_localization`
+- `hector_pose_estimation`
+- `hector_pose_estimation_core`
+- `message_to_tf`
+- `world_magnetic_model`
+
+Version of package(s) in repository `hector_localization`:
+- rosdistro version: `0.1.1-0`
+- old version: `0.1.1-0`
+- new version: `0.1.1-1`
+
+Versions of tools used:
+- bloom version: `0.5.9`
+- catkin_pkg version: `0.2.2`
+- rosdep version: `0.10.27`
+- rosdistro version: `0.3.5`
+- vcstools version: `0.1.35`
+
+
 ## hector_localization (hydro) - 0.1.1-0
 
 User `meyer@fliegtfix` released the packages in the `hector_localization` repository into the `hydro` distro by running `/usr/bin/bloom-release --track hydro --rosdistro hydro --edit hector_localization` on `Sun, 30 Mar 2014 00:19:15 -0000`
