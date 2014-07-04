@@ -1,0 +1,25 @@
+ros-groovy-message-to-tf (0.1.2-0oneiric) oneiric; urgency=high
+
+  * Add parameter for optionally not publishing roll/pitch to tf
+  * Don´t publish roll/pitch (to be parametrized soon)
+  * Contributors: Stefan Kohlbrecher, hector1
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sun, 01 Jun 2014 22:00:00 -0000
+
+ros-groovy-message-to-tf (0.1.1-0oneiric) oneiric; urgency=high
+
+  * added missing dependency to roscpp
+  * Contributors: Johannes Meyer
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sat, 29 Mar 2014 23:00:00 -0000
+
+ros-groovy-message-to-tf (0.1.0-0oneiric) oneiric; urgency=high
+
+  * catkinized stack hector_localization
+  * readded tf_prefix support (deprecated feature in ROS hydro beta)
+  * added ShapeShifter subscriber which accepts multiple message types
+  * added euler angle publisher (Vector3Stamped)
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Mon, 02 Sep 2013 22:00:00 -0000
+
+
