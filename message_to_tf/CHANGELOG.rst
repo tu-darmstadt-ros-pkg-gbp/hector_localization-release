@@ -2,6 +2,15 @@
 Changelog for package message_to_tf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.1.5 (2014-10-02)
+------------------
+* get subscribed topic from the command line
+* initialize origin when publishing imu transform and fixed imu pose output (fix #6)
+* Contributors: Johannes Meyer
+
+0.1.4 (2014-08-28)
+------------------
+
 0.1.3 (2014-07-09)
 ------------------
 * message_to_tf: fixed base_link transform publishing (was removed in 77f2cc2334d15fc0e9395ceb9b40cd4601448289)
