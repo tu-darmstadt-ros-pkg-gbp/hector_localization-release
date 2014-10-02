@@ -143,22 +143,24 @@ void imuCallback(sensor_msgs::Imu const &imu) {
   tf::quaternionMsgToTF(imu.orientation, orientation);
   tfScalar yaw, pitch, roll;
   tf::Matrix3x3(orientation).getEulerYPR(yaw, pitch, roll);
+  tf::Quaternion rollpitch = tf::createQuaternionFromRPY(roll, pitch, 0.0);
 
   // base_link transform (roll, pitch)
   if (g_publish_roll_pitch) {
     tf.child_frame_id_ = tf::resolve(g_tf_prefix, child_frame_id);
-    tf.setRotation(tf::createQuaternionFromRPY(roll, pitch, 0.0));
+    tf.setOrigin(tf::Vector3(0.0, 0.0, 0.0));
+    tf.setRotation(rollpitch);
     addTransform(transforms, tf);
   }
 
-  g_transform_broadcaster->sendTransform(transforms);
+  if (!transforms.empty()) g_transform_broadcaster->sendTransform(transforms);
 
   // publish pose message
   if (g_pose_publisher) {
     geometry_msgs::PoseStamped pose_stamped;
     pose_stamped.header.stamp = imu.header.stamp;
     pose_stamped.header.frame_id = g_stabilized_frame_id;
-    tf::quaternionTFToMsg(tf.getRotation(), pose_stamped.pose.orientation);
+    tf::quaternionTFToMsg(rollpitch, pose_stamped.pose.orientation);
     g_pose_publisher.publish(pose_stamped);
   }
 }
@@ -204,6 +206,14 @@ int main(int argc, char** argv) {
   priv_nh.getParam("stabilized_frame_id", g_stabilized_frame_id);
   priv_nh.getParam("child_frame_id", g_child_frame_id);
 
+  // get topic from the commandline
+  if (argc > 1) {
+      g_topic = argv[1];
+      g_odometry_topic.clear();
+      g_pose_topic.clear();
+      g_imu_topic.clear();
+  }
+
   g_publish_roll_pitch = true;
   priv_nh.getParam("publish_roll_pitch", g_publish_roll_pitch);
 
@@ -212,13 +222,30 @@ int main(int argc, char** argv) {
 
   ros::NodeHandle node;
   ros::Subscriber sub1, sub2, sub3, sub4;
-  if (!g_odometry_topic.empty()) sub1 = node.subscribe(g_odometry_topic, 10, &odomCallback);
-  if (!g_pose_topic.empty())     sub2 = node.subscribe(g_pose_topic, 10, &poseCallback);
-  if (!g_imu_topic.empty())      sub3 = node.subscribe(g_imu_topic, 10, &imuCallback);
-  if (!g_topic.empty())          sub4 = node.subscribe(g_topic, 10, &multiCallback);
+  int subscribers = 0;
+  if (!g_odometry_topic.empty()) {
+      sub1 = node.subscribe(g_odometry_topic, 10, &odomCallback);
+      subscribers++;
+  }
+  if (!g_pose_topic.empty()) {
+      sub2 = node.subscribe(g_pose_topic, 10, &poseCallback);
+      subscribers++;
+  }
+  if (!g_imu_topic.empty()) {
+      sub3 = node.subscribe(g_imu_topic, 10, &imuCallback);
+      subscribers++;
+  }
+  if (!g_topic.empty()) {
+      sub4 = node.subscribe(g_topic, 10, &multiCallback);
+      subscribers++;
+  }
 
-  if (!sub1 && !sub2 && !sub3 && !sub4) {
-    ROS_FATAL("Params odometry_topic, pose_topic, imu_topic and topic are empty... nothing to do for me!");
+  if (subscribers == 0) {
+    ROS_FATAL("Usage: rosrun message_to_tf message_to_tf <topic>");
+    return 1;
+  } else if (subscribers > 1) {
+    ROS_FATAL("More than one of the parameters odometry_topic, pose_topic, imu_topic and topic are set.\n"
+              "Please specify exactly one of them or simply add the topic name to the command line.");
     return 1;
   }
 
