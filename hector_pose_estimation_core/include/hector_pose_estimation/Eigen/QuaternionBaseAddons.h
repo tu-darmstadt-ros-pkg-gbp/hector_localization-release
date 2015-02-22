@@ -1,5 +1,5 @@
 //=================================================================================================
-// Copyright (c) 2013, Johannes Meyer, TU Darmstadt
+// Copyright (c) 2014, Johannes Meyer and contributors, Technische Universitat Darmstadt
 // All rights reserved.
 
 // Redistribution and use in source and binary forms, with or without
@@ -26,31 +26,37 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //=================================================================================================
 
-#ifndef HECTOR_POSE_ESTIMATION_MEASUREMENT_INL
-#define HECTOR_POSE_ESTIMATION_MEASUREMENT_INL
+#ifndef EIGEN_QUATERNIONBASE_PLUGIN
+  #include <Eigen/Core>
+  #define EIGEN_QUATERNIONBASE_PLUGIN <hector_pose_estimation/Eigen/QuaternionBaseAddons.h>
 
-#include <hector_pose_estimation/measurement.h>
+#else
 
-#include <ros/console.h>
-
-namespace hector_pose_estimation {
-
-template <class ConcreteModel>
-bool Measurement_<ConcreteModel>::updateImpl(const MeasurementUpdate &update_)
+template <typename OtherDerived>
+Derived &fromRotationVector(const MatrixBase<OtherDerived> &rotation_vector)
 {
-  Update const &update = dynamic_cast<Update const &>(update_);
-  if (!prepareUpdate(filter()->state(), update)) return false;
+  eigen_assert(rotation_vector.size() == 3);
 
-  ROS_DEBUG("Updating with measurement %s", getName().c_str());
-  const MeasurementVector &y = getVector(update, filter()->state());
-  const NoiseVariance &R = getVariance(update, filter()->state());
+  const double angle = rotation_vector.norm();
+  double sin_angle_2, cos_angle_2;
+  ::sincos(angle / 2., &sin_angle_2, &cos_angle_2);
+  double sin_angle_norm_2 = 0.5;
+  if (angle > NumTraits<double>::dummy_precision()) sin_angle_norm_2 = sin_angle_2 / angle;
 
-  this->corrector()->correct(y, R);
+  w() = cos_angle_2;
+  vec() = rotation_vector * sin_angle_norm_2;
 
-  afterUpdate(filter()->state());
-  return true;
+  return derived();
 }
 
-} // namespace hector_pose_estimation
+Vector3 toRotationVector() const
+{
+  eigen_assert(squaredNorm() == 1.0);
+  Scalar vector_norm = vec().norm();
+  if (vector_norm <= NumTraits<Scalar>::dummy_precision())
+    return vec() * Scalar(2.);
+  else
+    return vec() / vector_norm * ::acos(w()) * Scalar(2.);
+}
 
-#endif // HECTOR_POSE_ESTIMATION_MEASUREMENT_INL
+#endif // EIGEN_QUATERNIONBASE_PLUGIN
