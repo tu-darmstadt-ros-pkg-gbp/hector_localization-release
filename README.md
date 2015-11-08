@@ -1,3 +1,28 @@
+## hector_localization (indigo) - 0.2.1-0
+
+The packages in the `hector_localization` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --track indigo --rosdistro indigo hector_localization --edit` on `Sun, 08 Nov 2015 12:52:42 -0000`
+
+These packages were released:
+- `hector_localization`
+- `hector_pose_estimation`
+- `hector_pose_estimation_core`
+- `message_to_tf`
+
+Version of package(s) in repository `hector_localization`:
+- upstream repository: https://github.com/tu-darmstadt-ros-pkg/hector_localization.git
+- release repository: https://github.com/tu-darmstadt-ros-pkg-gbp/hector_localization-release.git
+- rosdistro version: `0.2.0-0`
+- old version: `0.2.0-0`
+- new version: `0.2.1-0`
+
+Versions of tools used:
+- bloom version: `0.5.20`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.4`
+- rosdistro version: `0.4.2`
+- vcstools version: `0.1.38`
+
+
 ## hector_localization (hydro) - 0.2.0-1
 
 The packages in the `hector_localization` repository were released into the `hydro` distro by running `/usr/bin/bloom-release --ros-distro hydro --track hydro hector_localization` on `Tue, 24 Feb 2015 22:27:28 -0000`
