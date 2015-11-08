@@ -1,0 +1,12 @@
+Source: ros-jade-hector-pose-estimation
+Section: misc
+Priority: extra
+Maintainer: Johannes Meyer <meyer@fsr.tu-darmstadt.de>
+Build-Depends: debhelper (>= 9.0.0), ros-jade-catkin, ros-jade-geometry-msgs, ros-jade-hector-pose-estimation-core, ros-jade-message-filters, ros-jade-nav-msgs, ros-jade-nodelet, ros-jade-sensor-msgs, ros-jade-tf
+Homepage: http://ros.org/wiki/hector_pose_estimation
+Standards-Version: 3.9.2
+
+Package: ros-jade-hector-pose-estimation
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jade-geometry-msgs, ros-jade-hector-pose-estimation-core, ros-jade-message-filters, ros-jade-nav-msgs, ros-jade-nodelet, ros-jade-sensor-msgs, ros-jade-tf
+Description: hector_pose_estimation provides the hector_pose_estimation node and the hector_pose_estimation nodelet.
