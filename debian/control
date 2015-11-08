@@ -1,0 +1,12 @@
+Source: ros-jade-message-to-tf
+Section: misc
+Priority: extra
+Maintainer: Johannes Meyer <meyer@fsr.tu-darmstadt.de>
+Build-Depends: debhelper (>= 9.0.0), ros-jade-catkin, ros-jade-geometry-msgs, ros-jade-nav-msgs, ros-jade-roscpp, ros-jade-sensor-msgs, ros-jade-tf, ros-jade-topic-tools
+Homepage: http://ros.org/wiki/message_to_tf
+Standards-Version: 3.9.2
+
+Package: ros-jade-message-to-tf
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jade-geometry-msgs, ros-jade-nav-msgs, ros-jade-roscpp, ros-jade-sensor-msgs, ros-jade-tf, ros-jade-topic-tools
+Description: message_to_tf translates pose information from different kind of common_msgs message types to tf. Currently the node supports nav_msgs/Odometry, geometry_msgs/PoseStamped and sensor_msgs/Imu messages as input. The resulting transform is divided into three subtransforms with intermediate frames for the footprint and the stabilized base frame (without roll and pitch).
