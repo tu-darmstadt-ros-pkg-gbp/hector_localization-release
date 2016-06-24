@@ -1,0 +1,93 @@
+ros-kinetic-hector-pose-estimation (0.2.2-0xenial) xenial; urgency=high
+
+  * hector_pose_estimation: cleaned up example launch file and add install rule for launch/ and rviz_cfg/
+  * update rviz file
+  * add .rviz config file for hector pose estimation
+  * add launch file for hector_pose_estimation
+  * Contributors: Johannes Meyer, libing64
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Fri, 24 Jun 2016 00:00:00 -0000
+
+ros-kinetic-hector-pose-estimation (0.2.1-0xenial) xenial; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sun, 08 Nov 2015 00:00:00 -0000
+
+ros-kinetic-hector-pose-estimation (0.2.0-0xenial) xenial; urgency=high
+
+  * added QUIET flag when finding optional hector_timing
+  * immediately reset the gps measurement when fix is lost
+  * disabled publish_world_nav_transform parameter by default and added deprecation warnings for publish_world_map_transform and map_frame
+  * fixed sensor_pose correction if reference heading != 0
+  * added new publisher /geopose with type geographic_msgs/GeoPose
+  * instrumented code for timing measurements using hector_diagnostics
+    See https://github.com/tu-darmstadt-ros-pkg/hector_diagnostics/tree/master/hector_timing.
+  * added raw, unfiltered sensor pose publisher
+    This is for debugging purposes only. The raw sensor pose combines the information from
+    IMU acceleration/gravity, magnetic, GPS and height/barometric pressure sensors.
+  * added world to nav transform broadcaster and global/reference (geographic_msgs/GeoPose) publisher
+  * Added missing orientation-orientation derivative in GenericQuaternionSystemModel
+  * Readded dimension paramters to SystemModel templates
+  * Readded class BaseState and State::base() accessors (currently unused)
+  * Added typed getters PoseEstimation::getSystem_<T>(name) and PoseEstimation::getMeasurement_<T>(name)
+  * IMU-based prediction is now in the GenericQuaternionSystemModel class again.
+    The accelerometer and gyro models are added automatically if GenericQuaternionSystemModel::init() found an IMU input.
+    GenericQuaternionSystemModel calls methods on the IMU model classes to get the errors, derivatives and noise.
+    The IMU models themselves do not add
+  * Added class SkewSymmetricMatrix
+  * Avoid calling SymmetricMatrix::symmetric() as, surprisingly, this method seems to be quite expensive. Symmetry is only
+    enforced if assigned from a matrix which is not a SymmetricMatrix.
+  * Added Eigen optimizations (avoid copies and added alignment macros)
+  * Moved system and measurement status management from class Filter to PoseEstimation
+  * first functional version with multiplicative EKF
+  * added support for dynamic states (full, orientation only, position/velocity only, ...)
+  * Contributors: Johannes Meyer
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sun, 22 Feb 2015 00:00:00 -0000
+
+ros-kinetic-hector-pose-estimation (0.1.5-0xenial) xenial; urgency=high
+
+  * hector_pose_estimation: make private variables protected to allow access from specialized pose_estimation classes
+  * hector_pose_estimation: fixed wrong indicies bug in GPS pose publisher
+  * Contributors: Johannes Meyer
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Thu, 02 Oct 2014 00:00:00 -0000
+
+ros-kinetic-hector-pose-estimation (0.1.4-0xenial) xenial; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Thu, 28 Aug 2014 00:00:00 -0000
+
+ros-kinetic-hector-pose-estimation (0.1.3-0xenial) xenial; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Wed, 09 Jul 2014 00:00:00 -0000
+
+ros-kinetic-hector-pose-estimation (0.1.2-0xenial) xenial; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Mon, 02 Jun 2014 00:00:00 -0000
+
+ros-kinetic-hector-pose-estimation (0.1.1-0xenial) xenial; urgency=high
+
+  * Fixed boost 1.53 issues
+    changed boost::shared_dynamic_cast to boost::dynamic_pointer_cast and
+    boost::shared_static_cast to boost::static_pointer_cast
+  * readded tf_prefix support (was removed from tf::TransformBroadcaster in hydro)
+  * hector_pose_estimation/rtt_hector_pose_estimation: removed optional usage of package hector_uav_msgs and created a separate package hector_quadrotor_pose_estimation instead
+  * fixed unresolved symbols when loading the nodelet, renamed plugin description xml file
+  * Contributors: Christopher Hrabia, Johannes Meyer
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sun, 30 Mar 2014 00:00:00 -0000
+
+ros-kinetic-hector-pose-estimation (0.1.0-0xenial) xenial; urgency=high
+
+  * catkinized stack hector_localization
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Tue, 03 Sep 2013 00:00:00 -0000
+
+
