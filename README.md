@@ -1,3 +1,30 @@
+## hector_localization (kinetic) - 0.2.2-0
+
+The packages in the `hector_localization` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --track kinetic --rosdistro kinetic hector_localization` on `Fri, 24 Jun 2016 21:09:35 -0000`
+
+These packages were released:
+- `hector_localization`
+- `hector_pose_estimation`
+- `hector_pose_estimation_core`
+- `message_to_tf`
+
+Version of package(s) in repository `hector_localization`:
+
+- upstream repository: https://github.com/tu-darmstadt-ros-pkg/hector_localization.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.2.2-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.21`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.4.7`
+- vcstools version: `0.1.38`
+
+
 ## hector_localization (jade) - 0.2.1-1
 
 The packages in the `hector_localization` repository were released into the `jade` distro by running `/usr/bin/bloom-release --track jade --rosdistro jade hector_localization` on `Sun, 08 Nov 2015 20:03:45 -0000`
