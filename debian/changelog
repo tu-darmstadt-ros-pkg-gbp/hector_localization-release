@@ -1,0 +1,64 @@
+ros-melodic-hector-localization (0.3.0-1bionic) bionic; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sun, 26 Jun 2016 22:00:00 -0000
+
+ros-melodic-hector-localization (0.2.2-1bionic) bionic; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Thu, 23 Jun 2016 22:00:00 -0000
+
+ros-melodic-hector-localization (0.2.1-1bionic) bionic; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sat, 07 Nov 2015 23:00:00 -0000
+
+ros-melodic-hector-localization (0.2.0-1bionic) bionic; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sat, 21 Feb 2015 23:00:00 -0000
+
+ros-melodic-hector-localization (0.1.5-1bionic) bionic; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Wed, 01 Oct 2014 22:00:00 -0000
+
+ros-melodic-hector-localization (0.1.4-1bionic) bionic; urgency=high
+
+  * Removed package world_magnetic_model as it is currently not used by hector_pose_estimation
+    The package is still available in the world_magnetic_model branch.
+  * Contributors: Johannes Meyer
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Wed, 27 Aug 2014 22:00:00 -0000
+
+ros-melodic-hector-localization (0.1.3-1bionic) bionic; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Tue, 08 Jul 2014 22:00:00 -0000
+
+ros-melodic-hector-localization (0.1.2-1bionic) bionic; urgency=high
+
+
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sun, 01 Jun 2014 22:00:00 -0000
+
+ros-melodic-hector-localization (0.1.1-1bionic) bionic; urgency=high
+
+  * made hector_localization a true metapackage
+  * Contributors: Johannes Meyer
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Sat, 29 Mar 2014 23:00:00 -0000
+
+ros-melodic-hector-localization (0.1.0-1bionic) bionic; urgency=high
+
+  * catkinized stack hector_localization
+
+ -- Johannes Meyer <meyer@fsr.tu-darmstadt.de>  Mon, 02 Sep 2013 22:00:00 -0000
+
+
