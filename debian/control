@@ -1,0 +1,12 @@
+Source: ros-melodic-hector-pose-estimation
+Section: misc
+Priority: optional
+Maintainer: Johannes Meyer <meyer@fsr.tu-darmstadt.de>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-catkin, ros-melodic-geometry-msgs, ros-melodic-hector-pose-estimation-core, ros-melodic-message-filters, ros-melodic-nav-msgs, ros-melodic-nodelet, ros-melodic-sensor-msgs, ros-melodic-tf
+Homepage: http://ros.org/wiki/hector_pose_estimation
+Standards-Version: 3.9.2
+
+Package: ros-melodic-hector-pose-estimation
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-geometry-msgs, ros-melodic-hector-pose-estimation-core, ros-melodic-message-filters, ros-melodic-nav-msgs, ros-melodic-nodelet, ros-melodic-sensor-msgs, ros-melodic-tf
+Description: hector_pose_estimation provides the hector_pose_estimation node and the hector_pose_estimation nodelet.
