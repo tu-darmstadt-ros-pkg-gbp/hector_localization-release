@@ -100,7 +100,7 @@ struct TimeContinuousSystemModel_<ConcreteModel, _VectorDimension, _CovarianceDi
   internal(const State &state)
     : x_diff(state.getVectorDimension())
     , A(state.getCovarianceDimension(), state.getCovarianceDimension())
-    , B(state.getCovarianceDimension(), InputDimension)
+    , B(state.getCovarianceDimension(), IndexType(InputDimension))
     , Q(state.getCovarianceDimension(), state.getCovarianceDimension())
   {}
 };
@@ -146,7 +146,7 @@ void TimeContinuousSystemModel_<ConcreteModel, _VectorDimension, _CovarianceDime
   //if (init) internal_->Q = NoiseVariance::Zero(Q.rows(), Q.cols());
   getSystemNoise(internal_->Q, state, init);
   Q = dt * internal_->Q;
-  Q.symmetric();
+  Q.assertSymmetric();
 }
 
 } // namespace hector_pose_estimation

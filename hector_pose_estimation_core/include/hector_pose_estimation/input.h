@@ -79,7 +79,7 @@ public:
     return *variance_;
   }
 
-  virtual bool hasVariance() const { return variance_; }
+  virtual bool hasVariance() const { return (variance_.get() != 0); }
   virtual Variance const &getVariance() { if (!variance_) variance_.reset(new Variance); return *variance_; }
   virtual Variance const &getVariance() const { return *variance_; }
   virtual Variance& variance() { if (!variance_) variance_.reset(new Variance); return *variance_; }
@@ -109,7 +109,7 @@ protected:
 
 namespace traits {
   template <class Model> struct Input {
-    static const int Dimension = 0;
+    enum { Dimension = 0 };
     typedef Input_<Dimension> Type;
     typedef ColumnVector_<0> Vector;
     typedef SymmetricMatrix_<0> Variance;
