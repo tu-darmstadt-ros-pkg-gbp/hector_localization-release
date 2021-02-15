@@ -1,0 +1,12 @@
+Source: ros-noetic-hector-pose-estimation
+Section: misc
+Priority: optional
+Maintainer: Johannes Meyer <joh@nnes-meyer.de>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin, ros-noetic-geometry-msgs, ros-noetic-hector-pose-estimation-core, ros-noetic-message-filters, ros-noetic-nav-msgs, ros-noetic-nodelet, ros-noetic-sensor-msgs, ros-noetic-tf
+Homepage: http://ros.org/wiki/hector_pose_estimation
+Standards-Version: 3.9.2
+
+Package: ros-noetic-hector-pose-estimation
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-geometry-msgs, ros-noetic-hector-pose-estimation-core, ros-noetic-message-filters, ros-noetic-nav-msgs, ros-noetic-nodelet, ros-noetic-sensor-msgs, ros-noetic-tf
+Description: hector_pose_estimation provides the hector_pose_estimation node and the hector_pose_estimation nodelet.
