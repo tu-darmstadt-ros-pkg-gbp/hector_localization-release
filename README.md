@@ -1,3 +1,30 @@
+## hector_localization (noetic) - 0.4.0-1
+
+The packages in the `hector_localization` repository were released into the `noetic` distro by running `/usr/bin/bloom-release hector_localization -r noetic` on `Tue, 16 Feb 2021 00:00:38 -0000`
+
+These packages were released:
+- `hector_localization`
+- `hector_pose_estimation`
+- `hector_pose_estimation_core`
+- `message_to_tf`
+
+Version of package(s) in repository `hector_localization`:
+
+- upstream repository: https://github.com/tu-darmstadt-ros-pkg/hector_localization.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.4.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.1`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.20.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## hector_localization (melodic) - 0.3.0-1
 
 The packages in the `hector_localization` repository were released into the `melodic` distro by running `/usr/bin/bloom-release hector_localization --track melodic --rosdistro melodic --new-track` on `Sat, 04 Apr 2020 11:53:34 -0000`
